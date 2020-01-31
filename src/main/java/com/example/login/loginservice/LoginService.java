@@ -24,6 +24,7 @@ public class LoginService {
         Session session = new Session();
         session.setUserId(user.getId());
         session.setCreatedAt(timeService.getCurrentTime());
+        session.setActive(Boolean.TRUE);
 
         Session storedSession = sessionRepository.save(session);
         return storedSession.getId();
