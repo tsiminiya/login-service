@@ -15,6 +15,8 @@ public class Session {
 
     private LocalDateTime createdAt;
 
+    private Boolean active;
+
     public Long getId() {
         return id;
     }
@@ -39,13 +41,12 @@ public class Session {
         this.createdAt = createdAt;
     }
 
-    @Override
-    public String toString() {
-        return "Session{" +
-                "id='" + id + '\'' +
-                ", userId=" + userId +
-                ", createdAt=" + createdAt +
-                '}';
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -55,11 +56,22 @@ public class Session {
         Session session = (Session) o;
         return Objects.equals(id, session.id) &&
                 Objects.equals(userId, session.userId) &&
-                Objects.equals(createdAt, session.createdAt);
+                Objects.equals(createdAt, session.createdAt) &&
+                Objects.equals(active, session.active);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, createdAt);
+        return Objects.hash(id, userId, createdAt, active);
+    }
+
+    @Override
+    public String toString() {
+        return "Session{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", createdAt=" + createdAt +
+                ", active=" + active +
+                '}';
     }
 }
